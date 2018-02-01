@@ -10,3 +10,4 @@ outputs:
         - dns:
             enabled: true
             version: 2
+            

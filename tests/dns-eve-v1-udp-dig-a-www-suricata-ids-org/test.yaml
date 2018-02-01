@@ -2,6 +2,9 @@ requires:
   features:
     - HAVE_LIBJANSSON
 
+skip:
+  - feature: RUST
+
 checks:
 
   - filter:

@@ -1,3 +1,17 @@
 requires:
   features:
     - HAVE_LIBJANSSON
+
+checks:
+
+  - filter:
+      count: 2
+      match:
+        event_type: dns
+        dns.type: query
+
+  - filter:
+      count: 2
+      match:
+        event_type: dns
+        dns.type: answer

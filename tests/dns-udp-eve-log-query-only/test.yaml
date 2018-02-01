@@ -1,3 +1,11 @@
 requires:
+  min-version: 4.1.0
   features:
     - HAVE_LIBJANSSON
+
+checks:
+
+  - filter:
+      count: 3
+      match:
+        event_type: dns

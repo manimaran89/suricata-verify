@@ -1,3 +1,25 @@
 requires:
   features:
     - HAVE_LIBJANSSON
+
+checks:
+
+  - filter:
+      count: 1
+      match:
+        event_type: dns
+        dns.type: query
+        dns.rrtype: AAAA
+
+  - filter:
+      count: 1
+      match:
+        event_type: dns
+        dns.type: answer
+        dns.answers[0].rrtype: AAAA
+
+  - filter:
+      count: 2
+      match:
+        event_type: dns
+      

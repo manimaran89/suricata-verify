@@ -1,3 +1,19 @@
 requires:
   features:
     - HAVE_LIBJANSSON
+  min-version: 4.1.0
+
+checks:
+  - filter:
+      count: 1
+      match:
+        event_type: dns
+        dns.type: query
+
+  - filter:
+      count: 1
+      match:
+        event_type: dns
+        dns.type: answer
+        dns.rcode: NXDOMAIN
+        

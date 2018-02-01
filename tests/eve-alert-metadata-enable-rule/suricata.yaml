@@ -21,8 +21,7 @@ outputs:
         - http:
             extended: yes
         - dns:
-            query: yes     # enable logging of DNS queries
-            answer: yes    # enable logging of DNS answers
+            version: 2
         - tls:
             extended: yes     # enable this for extended logging information
         - files:

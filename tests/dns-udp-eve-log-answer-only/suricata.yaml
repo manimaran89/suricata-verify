@@ -8,6 +8,6 @@ outputs:
       filename: eve.json
       types:
         - dns:
-            query: no
-            answer: yes
-        
+            version: 2
+            requests: false
+            responses: true

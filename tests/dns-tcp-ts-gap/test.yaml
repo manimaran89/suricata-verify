@@ -1,5 +1,21 @@
 requires:
   # App-layer gap handling didn't happen until v4.
-  min-version: 4.0.0
+  min-version: 4.1.0
   features:
     - HAVE_LIBJANSSON
+
+checks:
+  # Check for 2 requests. One is missing in the pcap (the gap).
+  - filter:
+      count: 2
+      match:
+        event_type: dns
+        dns.type: query
+
+  # Check for 3 responses, as that is what the DNS server should have
+  # received.
+  - filter:
+      count: 3
+      match:
+        event_type: dns
+        dns.type: answer

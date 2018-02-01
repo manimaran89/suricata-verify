@@ -4,21 +4,21 @@ requires:
   min-version: 4.1.0
 
 checks:
+
   - filter:
+      comment: request
       count: 1
       match:
         event_type: dns
         dns.type: query
-        dns.rrtype: MX
+        dns.rrname: www.suricata-ids.org
 
   - filter:
+      comment: response
       count: 1
       match:
         event_type: dns
-        dns.type: query
-
-  # - filter:
-  #     count: 6
-  #     match:
-  #       event_type: dns
-  #       dns.rrtype: MX
+        dns.type: answer
+        dns.answers[0].rrtype: CNAME
+        dns.answers[1].rrtype: A
+        dns.answers[2].rrtype: A

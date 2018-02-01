@@ -1,3 +1,13 @@
 requires:
   features:
     - HAVE_LIBJANSSON
+  min-version: 4.1.0
+
+checks:
+
+  - filter:
+      count: 1
+      match:
+        event_type: dns
+        dns.type: answer
+        dns.answers[0].rdata: "v=spf1 include:_spf.google.com ~all"
