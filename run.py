@@ -182,12 +182,15 @@ class FilterCheck:
         self.outdir = outdir
 
     def run(self):
-        eve_json_path = "eve.json"
-        if not os.path.exists(eve_json_path):
-            raise TestError("%s does not exist" % (eve_json_path))
+        if "filename" in self.config:
+            filename = self.config["filename"]
+        else:
+            filename = "eve.json"
+        if not os.path.exists(filename):
+            raise TestError("%s does not exist" % (filename))
 
         count = 0
-        with open(eve_json_path, "r") as fileobj:
+        with open(filename, "r") as fileobj:
             for line in fileobj:
                 event = json.loads(line)
                 if self.match(event):
